@@ -1,4 +1,11 @@
 public class HW06_4108056038_1 extends Dessert_Desert {
+    public static void main(String[] args) {
+        HW06_4108056038_1 test = new HW06_4108056038_1();
+        int[][] a = {{1,7,10,8,13,8}};
+        for(int i=0;i<a.length;i++) {
+            System.out.println(test.maxBlocks(a)[i]);
+        }
+    }
     public int[] maxBlocks(int[][] inputArr) {
         int len = inputArr.length;
         int[] re = new int[len];
@@ -15,8 +22,8 @@ public class HW06_4108056038_1 extends Dessert_Desert {
                 }else if (inputArr[i][j]<min[count-1]) {
                     min[count-1]=inputArr[i][j];
                     for (int check=count-2;check>=0;check--) {
-                        if (inputArr[i][j]>max[check]) break;
-                        else if (inputArr[i][j]>min[check]) {
+                        if (inputArr[i][j]>=max[check]) break;
+                        else if (inputArr[i][j]>=min[check]) {
                             count--;
                             break;
                         }else {

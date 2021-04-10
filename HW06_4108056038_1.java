@@ -30,6 +30,7 @@ public class HW06_4108056038_1 extends Dessert_Desert {
                         }else {
                             count--;
                             min[check]=inputArr[i][j];
+                            max[check]=max[check+1];
                         }
                     }
                 }

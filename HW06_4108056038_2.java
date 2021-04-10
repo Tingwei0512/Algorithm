@@ -1,7 +1,7 @@
 public class HW06_4108056038_2 extends Dessert_Desert {
     public static void main(String[] args) {
         HW06_4108056038_2 test = new HW06_4108056038_2();
-        int[][] a = {{1,4,8,5,4,9,7,9},{1},{3,2,5,1,9},{1,2,9,9,2}};
+        int[][] a = {{1,1,1,1,1,1,1},{1,3,5,7,9},{1,2,3},{5,4,3,2,1},{2,1,3,2},{1,4,5,4,9,8},{1,4,8,5,4,9,7,9},{1},{2,1},{7,2,5,8,4,2,8,9},{3,2,1,2,4,6,5,2},{3,2,5,1,9},{1,2,9,9,2}};
         for(int i=0;i<a.length;i++) {
             System.out.println(test.maxBlocks(a)[i]);
         }
@@ -20,17 +20,41 @@ public class HW06_4108056038_2 extends Dessert_Desert {
                     count++;
                     max[count-1]=min[count-1]=inputArr[i][j];
                 }else if (inputArr[i][j]<min[count-1]) {
-                    min[count-1]=inputArr[i][j];
-                    for (int check=count-2;check>=0;check--) {
-                        if (inputArr[i][j]>=max[check]) break;
-                        else if (inputArr[i][j]>=min[check]) {
-                            count--;
-                            max[check]=max[check+1];
+                    int l,r,mid;
+                    l=0;
+                    r=count-1;
+                    while(true) {
+                        if(l+1==r) {
+                            if(inputArr[i][j]>=max[l]) {
+                                min[r]=inputArr[i][j];
+                                max[r]=max[count-1];
+                                count=r+1;
+                                break;
+                            }else if(inputArr[i][j]>=min[l]) {
+                                count=r;
+                                break;
+                            }else {
+                                min[l]=inputArr[i][j];
+                                count=r;
+                                break;
+                            }
+                            
+                        }
+                        if(l-r==0) {
+                            min[r]=inputArr[i][j];
+                            break;
+                        }
+                        mid=(l+r)/2;
+                        if(inputArr[i][j]>=max[mid]) {
+                            l=mid;
+                            continue;
+                        }else if(inputArr[i][j]>=min[mid]) {
+                            max[mid]=max[count-1];
+                            count=mid+1;
                             break;
                         }else {
-                            count--;
-                            min[check]=inputArr[i][j];
-                            max[check]=max[check+1];
+                            r=mid;
+                            continue;
                         }
                     }
                 }
@@ -39,4 +63,6 @@ public class HW06_4108056038_2 extends Dessert_Desert {
         }
         return re;
     }
+
+    
 }

@@ -1,7 +1,7 @@
 public class HW06_4108056038_2 extends Dessert_Desert {
     public static void main(String[] args) {
         HW06_4108056038_2 test = new HW06_4108056038_2();
-        int[][] a = {{1,1,1,1,1,1,1},{1,3,5,7,9},{1,2,3},{5,4,3,2,1},{2,1,3,2},{1,4,5,4,9,8},{1,4,8,5,4,9,7,9},{1},{2,1},{7,2,5,8,4,2,8,9},{3,2,1,2,4,6,5,2},{3,2,5,1,9},{1,2,9,9,2}};
+        int[][] a = {{1,1,1,2,2,2,3,3,3,4,2}};
         for(int i=0;i<a.length;i++) {
             System.out.println(test.maxBlocks(a)[i]);
         }
@@ -63,6 +63,4 @@ public class HW06_4108056038_2 extends Dessert_Desert {
         }
         return re;
     }
-
-    
 }
